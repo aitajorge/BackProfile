@@ -14,8 +14,8 @@
     <name>aitabe</name>
     <description>Portfolio Back End Jorge Aita</description>
     <properties>
-        <java.version>17</java.version>
-        <start-class>com.portfoliobe.aitabe.MyApplication</start-class>
+        <java.version>11</java.version>
+        <start-class>com.portfoliobe.aitabe.AitabeApplication</start-class>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
@@ -50,7 +50,13 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        
+ 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
+                      
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
@@ -87,27 +93,69 @@
          
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-crypto</artifactId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.5.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            
+            <version>5.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.7</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.0.Final</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>5.1.2.Final</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.oval</groupId>
+            <artifactId>oval</artifactId>
+            <version>1.84</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.aether</groupId>
+            <artifactId>aether-spi</artifactId>
+            <version>0.9.0.M2</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+            <version>1.9.3</version>
             <type>jar</type>
         </dependency>
         
-        
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
-
+        
+        
     </dependencies>
 
 

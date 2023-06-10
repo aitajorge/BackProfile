@@ -9,11 +9,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UsuarioPrincipal implements UserDetails {
 
-    private String nombre;
-    private String nombreUsuario;
-    private String email;
-    private String password;
-    private Collection<? extends GrantedAuthority> authorities;
+    public String nombre;
+    public String nombreUsuario;
+    public String email;
+    public String password;
+    public Collection<? extends GrantedAuthority> authorities;
 
     public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
