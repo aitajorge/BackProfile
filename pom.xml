@@ -14,10 +14,9 @@
     <name>aitabe</name>
     <description>Portfolio Back End Jorge Aita</description>
     <properties>
-        <java.version>11</java.version>
-        <start-class>com.portfoliobe.aitabe.AitabeApplication</start-class>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <java.version>20</java.version>
+     
+        <maven.plugin.validation>verbose</maven.plugin.validation>
     </properties>
   
       
@@ -61,6 +60,7 @@
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
+            
         </dependency>
         
         <dependency>
@@ -74,7 +74,30 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.craterdog.java-security-framework</groupId>
+            <artifactId>java-certificate-management-api</artifactId>
+            <version>3.20</version>            
+        </dependency>
         
+        <dependency>
+            <groupId>com.craterdog.java-security-framework</groupId>
+            <artifactId>java-certificate-management-providers</artifactId>
+            <version>3.20</version>            
+        </dependency>
+        
+        <dependency>
+            <groupId>com.craterdog.java-security-framework</groupId>
+            <artifactId>java-secure-messaging-api</artifactId>
+            <version>3.20</version>            
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+        </dependency>
+                        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>                    
@@ -110,43 +133,40 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.12</version>
+            <version>1.2.17</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.7</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>8.0.0.Final</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.hibernate.common</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
-            <version>5.1.2.Final</version>
+            <version>6.0.6.Final</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>net.sf.oval</groupId>
             <artifactId>oval</artifactId>
-            <version>1.84</version>
+            <version>3.2.1</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.eclipse.aether</groupId>
             <artifactId>aether-spi</artifactId>
-            <version>0.9.0.M2</version>
+            <version>1.1.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-commons</artifactId>
-            <version>1.9.3</version>
             <type>jar</type>
         </dependency>
         
@@ -156,11 +176,42 @@
         </dependency>
         
         
+        
     </dependencies>
 
 
     <build>
         <plugins>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jarsigner-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration>
+                        <archive>
+                            <source>11</source>
+                            <target>11</target>
+                            <compilerArgs>
+                                <arg>-Xlint:unchecked</arg>
+                            </compilerArgs>
+                            <manifest>
+                                <addClasspaht>ture</addClasspaht>
+                                <mainClass>com.portfoliobe.aitabe.AitabeApplication</mainClass>                                
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+                   
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -176,9 +227,10 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
             </plugin>
-        </plugins>
+            </plugins>
+      </pluginManagement>   
     </build>
 
 </project>
